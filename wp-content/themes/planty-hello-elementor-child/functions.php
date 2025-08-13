@@ -14,11 +14,10 @@ if (! function_exists('b7ectg_theme_enqueue_styles')) {
 function add_admin_link($items, $args)
 {
 
-    if (is_user_logged_in() && $args->theme_location == 'Top') {
+    if (is_user_logged_in() && $args->theme_location == 'menu-1') {
 
         $items .= '<li><a href="' . get_admin_url() . '">Admin</a></li>';
     }
 
     return $items;
 }
-

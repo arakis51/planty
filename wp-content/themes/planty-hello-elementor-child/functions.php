@@ -11,13 +11,15 @@ if (! function_exists('b7ectg_theme_enqueue_styles')) {
     }
 }
 
-function add_admin_link($items, $args)
+function admin_link_shortcode()
 {
-
-    if (is_user_logged_in() && $args->theme_location == 'menu-1') {
-
-        $items .= '<li><a href="' . get_admin_url() . '">Admin</a></li>';
+    if (is_user_logged_in()) {
+        return '<a href="' . esc_url(admin_url()) . '">Admin</a>';
+    } else {
+        echo '<script>
+        document.querySelector("#admin").style.display = "none";
+        </script>';
     }
-
-    return $items;
+    return '';
 }
+add_shortcode('admin_link', 'admin_link_shortcode');

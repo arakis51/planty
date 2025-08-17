@@ -16,7 +16,7 @@ function admin_link_shortcode()
     if (is_user_logged_in()) {
         return '<a href="' . esc_url(admin_url()) . '">Admin</a>';
     } else {
-        echo '<script>
+        return '<script>
         document.querySelector("#admin").style.display = "none";
         </script>';
     }
